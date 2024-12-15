@@ -1,0 +1,4 @@
+# image MongoDB 
+FROM mongo:latest
+
+EXPOSE 27017

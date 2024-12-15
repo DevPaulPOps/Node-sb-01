@@ -1,0 +1,4 @@
+backend:
+  labelValue: backend
+  image: paulperigault/backend-container:latest
+  port: 3000

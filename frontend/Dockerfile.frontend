@@ -1,0 +1,22 @@
+# Utilisez une image Node.js
+FROM node:18.18.0
+
+# Répertoire de travail pour l'application Angular
+WORKDIR /app
+
+# Copier le package.json et les dépendances
+COPY package*.json ./
+
+# Installer les dépendances Node.js
+RUN npm install -g npm@10.2.1
+RUN npm install
+RUN npm audit fix
+
+# Exposer le port du frontend 
+EXPOSE 80
+
+# Copier les fichiers du frontend
+COPY frontEnd.js .
+COPY angular-sb-01/ /app/angular-sb-01/
+COPY config.json .
+CMD ["node", "frontEnd.js"]

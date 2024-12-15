@@ -1,0 +1,4 @@
+frontend:
+  labelValue: frontend
+  image: paulperigault/frontend-container:latest
+  port: 80

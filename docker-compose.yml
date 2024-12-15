@@ -1,0 +1,29 @@
+version: '3'
+services:
+  frontend:
+    image: frontend-container
+    ports:
+      - '80:80'
+    container_name: frontend-container
+
+  backend:
+    image: backend-container
+    ports:
+      - '3000:3000'
+    networks:
+      - my-network
+    container_name: backend-container
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    networks:
+      - my-network
+    container_name: mongodb
+
+networks:
+  my-network:
+    external: true
